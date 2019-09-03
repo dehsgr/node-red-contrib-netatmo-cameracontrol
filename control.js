@@ -77,20 +77,3 @@ module.exports = function(NodeRED) {
         });           
     }
 };
-
-/*
-var hs = msg.payload.body.homes;
-for (var h = 0; h < hs.length; h++) {
-    if (hs[h].id === msg.topic.home) {
-        var cs = hs[h].cameras;
-        for (var c = 0; c < cs.length; c++) {
-            if (cs[c].id === msg.topic.camera) {
-                return {
-                    payload: cs[c],
-                    topic: msg.topic
-                };
-            }
-        }
-    }
-}
-*/
