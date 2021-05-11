@@ -44,8 +44,13 @@ module.exports = function(NodeRED) {
                     if(myError) {
                         Platform.warn('There was an Error getting Camera Data: ' + myError);
                     } else {
-                        var hs = JSON.parse(myResponse.body).body.homes;
-                        for (var h = 0; h < hs.length; h++) {
+						try {
+							var hs = JSON.parse(myResponse.body).body.homes;
+						}
+						catch (e) {
+							Platform.warn('There was an Error getting Camera Data: ' + myResponse.body);
+						}
+                        for (var h = 0; h < (hs || []).length; h++) {
                             var cs = hs[h].cameras;
                             for (var c = 0; c < cs.length; c++) {
                                 if (cs[c].id.toLowerCase() === Platform.cameraid.toLowerCase()) {
