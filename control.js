@@ -36,9 +36,16 @@ module.exports = function(NodeRED) {
 				'scope': 'read_station read_thermostat write_thermostat read_camera write_camera access_camera read_presence access_presence write_presence read_homecoach'
 			}
 		}, function(myError, myResponse, myBody) {
+			try {
+				if (myResponse.statusCode != 200) {
+					myError = 'Unexpected Status Code ' + myResponse.statusCode;
+				}
+			} catch(e) {}
+
 			if(myError) {
 				Platform.warn('There was an Error authenticating: ' + myError);
 			} else {
+				Platform.warn(JSON.stringify(myResponse));
 				request.get('https://api.netatmo.net/api/gethomedata?access_token=' + JSON.parse(myResponse.body).access_token + '&size=50',
 				function(myError, myResponse, myBody) {
 					if(myError) {
