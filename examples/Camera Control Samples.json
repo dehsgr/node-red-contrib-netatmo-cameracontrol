@@ -1,0 +1,130 @@
+[
+    {
+        "id": "5fbffb8cca32714b",
+        "type": "tab",
+        "label": "Samples",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "087b7b3ec9c3d8da",
+        "type": "netatmo-cameracontrol",
+        "z": "5fbffb8cca32714b",
+        "name": "My Camera",
+        "confignode": "53b45641ab968dcc",
+        "cameraid": "ab:cd:ef:12:34:56",
+        "x": 410,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ab1e9636e2072a8a",
+        "type": "inject",
+        "z": "5fbffb8cca32714b",
+        "name": "Turn monitoring on",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"monitoring\":\"on\"}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "087b7b3ec9c3d8da"
+            ]
+        ]
+    },
+    {
+        "id": "7ee1ca1300916a64",
+        "type": "inject",
+        "z": "5fbffb8cca32714b",
+        "name": "Turn monitoring off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"monitoring\":\"off\"}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "087b7b3ec9c3d8da"
+            ]
+        ]
+    },
+    {
+        "id": "fd0b7ca77fdb5e3c",
+        "type": "inject",
+        "z": "5fbffb8cca32714b",
+        "name": "Turn light on",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\t    \"light\": \"on\"\t}",
+        "payloadType": "jsonata",
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "087b7b3ec9c3d8da"
+            ]
+        ]
+    },
+    {
+        "id": "22fc534ffa73b413",
+        "type": "inject",
+        "z": "5fbffb8cca32714b",
+        "name": "Turn light off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\t    \"light\": \"off\"\t}",
+        "payloadType": "jsonata",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "087b7b3ec9c3d8da"
+            ]
+        ]
+    },
+    {
+        "id": "53b45641ab968dcc",
+        "type": "netatmo-config",
+        "name": "My Netatmo Access Config",
+        "userid": "myuserid@netatmo.com",
+        "passwd": "MyTopSecretPassword",
+        "clientid": "mygeneratedclientid",
+        "clientsecret": "mygeneratedclientsecret"
+    }
+]
