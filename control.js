@@ -45,7 +45,6 @@ module.exports = function(NodeRED) {
 			if(myError) {
 				Platform.warn('There was an Error authenticating: ' + myError);
 			} else {
-				Platform.warn(JSON.stringify(myResponse));
 				request.get('https://api.netatmo.net/api/gethomedata?access_token=' + JSON.parse(myResponse.body).access_token + '&size=50',
 				function(myError, myResponse, myBody) {
 					if(myError) {
